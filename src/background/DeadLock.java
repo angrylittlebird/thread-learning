@@ -5,7 +5,7 @@ package background;
  * @Date: 2019/11/18
  * @Description: 线程安全问题：演示死锁
  */
-public class MultiThreadError implements Runnable{
+public class DeadLock implements Runnable{
     private int a = 0;
     //注意这里的static 保证了所有MultiThreadError实例用的都是同一把锁
     private static Object lock1 = new Object();
@@ -44,8 +44,8 @@ public class MultiThreadError implements Runnable{
     }
 
     public static void main(String[] args) {
-        MultiThreadError threadError1 = new MultiThreadError();
-        MultiThreadError threadError2 = new MultiThreadError();
+        DeadLock threadError1 = new DeadLock();
+        DeadLock threadError2 = new DeadLock();
         threadError2.a = 1;
         new Thread(threadError1).start();
         new Thread(threadError2).start();

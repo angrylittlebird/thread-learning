@@ -1,4 +1,4 @@
-package background;
+package background.escape;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,10 +8,10 @@ import java.util.Map;
  * @Date: 2019/11/18
  * @Description: 逸出：1.方法返回了被private修饰的对象（本意是不想该对象被外部访问）
  */
-public class MultiThreadError2 {
+public class Escape2 {
     private Map<Integer,String> map;
 
-    public MultiThreadError2() {
+    public Escape2() {
         this.map = new HashMap<>();
         map.put(1, "星期一");
         map.put(2, "星期二");
@@ -29,7 +29,7 @@ public class MultiThreadError2 {
     }
 
     public static void main(String[] args) {
-        MultiThreadError2 multiThreadError2 = new MultiThreadError2();
+        Escape2 multiThreadError2 = new Escape2();
         Map<Integer, String> map = multiThreadError2.getMap();
         String s = map.get(1);
         System.out.println(s);
